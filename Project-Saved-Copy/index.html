@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>D3 Project Starter Template</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Add HTML content, SVG drawing area, ... -->
+    <h1 class="heading">Hamilton County air data Analytics</h1>
+
+
+
+    <div class="footer">
+        <p>US Environmental Protection Agency. Air Quality System Data Mart [internet database] available via
+            https://www.epa.gov/outdoor-air-quality-data. Accessed Month 2021.</p>
+    </div>
+
+    <div class="year">
+        <select id="year" name="year" onchange="yearCharts(this.value);">
+            <option>year</option>
+            <option value="1980">1980</option>
+            <option value="1981">1981</option>
+            <option value="1982">1982</option>
+            <option value="1983">1983</option>
+            <option value="1984">1984</option>
+            <option value="1985">1985</option>
+            <option value="1986">1986</option>
+            <option value="1987">1987</option>
+            <option value="1988">1988</option>
+            <option value="1989">1989</option>
+            <option value="1990">1990</option>
+            <option value="1991">1991</option>
+            <option value="1992">1992</option>
+            <option value="1993">1993</option>
+            <option value="1994">1994</option>
+            <option value="1995">1995</option>
+            <option value="1996">1996</option>
+            <option value="1997">1997</option>
+            <option value="1998">1998</option>
+            <option value="1999">1999</option>
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+        </select>
+    </div>
+    <div class="ex1">
+
+        <select id="state_list" onchange="jsFunctions(this.value);">
+            <option id='Ohio,Adams'>Ohio,Adams</option>
+            <option id='Ohio,Allen'>Ohio,Allen</option>
+            <option id='Ohio,Ashtabula'>Ohio,Ashtabula</option>
+            <option id='Ohio,Belmont'>Ohio,Belmont</option>
+            <option id='Ohio,Butler'>Ohio,Butler</option>
+            <option id='Ohio,Clark'>Ohio,Clark</option>
+            <option id='Ohio,Clermont'>Ohio,Clermont</option>
+            <option id='Ohio,Columbiana'>Ohio,Columbiana</option>
+            <option id='Ohio,Cuyahoga'>Ohio,Cuyahoga</option>
+            <option id='Ohio,Franklin'>Ohio,Franklin</option>
+            <option id='Ohio,Hamilton'>Ohio,Hamilton</option>
+            <option id='Ohio,Jefferson'>Ohio,Jefferson</option>
+            <option id='Ohio,Lake'>Ohio,Lake</option>
+            <option id='Ohio,Lawrence'>Ohio,Lawrence</option>
+            <option id='Ohio,Lorain'>Ohio,Lorain</option>
+            <option id='Ohio,Lucas'>Ohio,Lucas</option>
+            <option id='Ohio,Mahoning'>Ohio,Mahoning</option>
+        </select>
+
+        <svg id="vis1"></svg>
+        <svg id="vis2"></svg>
+        <svg id="vis5"></svg>
+        <svg id="vis4"></svg>
+        <svg id="vis10"></svg>
+    </div>
+
+
+
+
+    <!-- <div id="tooltip-new"></div> -->
+    <!-- <div title="regular tooltip">Hover me</div> -->
+    <!-- 
+        <div class="container2">
+
+
+        </div> -->
+
+    <div class="ex2">
+
+        <select id="state_list_2" onchange="jsFunctions2(this.value);">
+            <option id='Ohio,Adams'>Ohio,Adams</option>
+            <option id='Ohio,Allen'>Ohio,Allen</option>
+            <option id='Ohio,Ashtabula'>Ohio,Ashtabula</option>
+            <option id='Ohio,Belmont'>Ohio,Belmont</option>
+            <option id='Ohio,Butler'>Ohio,Butler</option>
+            <option id='Ohio,Clark'>Ohio,Clark</option>
+            <option id='Ohio,Clermont'>Ohio,Clermont</option>
+            <option id='Ohio,Columbiana'>Ohio,Columbiana</option>
+            <option id='Ohio,Cuyahoga'>Ohio,Cuyahoga</option>
+            <option id='Ohio,Franklin'>Ohio,Franklin</option>
+            <option id='Ohio,Hamilton'>Ohio,Hamilton</option>
+            <option id='Ohio,Jefferson'>Ohio,Jefferson</option>
+            <option id='Ohio,Lake'>Ohio,Lake</option>
+            <option id='Ohio,Lawrence'>Ohio,Lawrence</option>
+            <option id='Ohio,Lorain'>Ohio,Lorain</option>
+            <option id='Ohio,Lucas'>Ohio,Lucas</option>
+            <option id='Ohio,Mahoning'>Ohio,Mahoning</option>
+        </select>
+
+        <svg id="vis6"></svg>
+        <svg id="vis7"></svg>
+        <svg id="vis8"></svg>
+        <svg id="vis9"></svg>
+
+
+        <select id="metric_list" onchange="metricDD(this.value);">
+                <option id='MaxAQI'>MaxAQI</option>
+                <option id='Percentile90AQI'>Percentile90AQI</option>
+                <option id='MedianAQI'>MedianAQI</option>
+                <option id='DaysCO'>DaysCO</option>
+                <option id='DaysNO2'>DaysNO2</option>
+                <option id='DaysOzone'>DaysOzone</option>
+                <option id='DaysSO2'>DaysSO2</option>
+                <option id='DaysPM25'>DaysPM25</option>
+        </select>
+        <svg id = "map" height="50" width="50" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs> <pattern id="lightstripe" patternUnits="userSpaceOnUse" width="50" height="50"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1JyBoZWlnaHQ9JzUnPgogIDxyZWN0IHdpZHRoPSc1JyBoZWlnaHQ9JzUnIGZpbGw9J3doaXRlJy8+CiAgPHBhdGggZD0nTTAgNUw1IDBaTTYgNEw0IDZaTS0xIDFMMSAtMVonIHN0cm9rZT0nIzg4OCcgc3Ryb2tlLXdpZHRoPScxJy8+Cjwvc3ZnPg==" x="0" y="0" width="50" height="50"> </image> </pattern> </defs></svg>
+        <svg height="5" width="5" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs> <pattern id="lightstripe" patternUnits="userSpaceOnUse" width="5" height="5"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1JyBoZWlnaHQ9JzUnPgogIDxyZWN0IHdpZHRoPSc1JyBoZWlnaHQ9JzUnIGZpbGw9J3doaXRlJy8+CiAgPHBhdGggZD0nTTAgNUw1IDBaTTYgNEw0IDZaTS0xIDFMMSAtMVonIHN0cm9rZT0nIzg4OCcgc3Ryb2tlLXdpZHRoPScxJy8+Cjwvc3ZnPg==" x="0" y="0" width="5" height="5"> </image> </pattern> </defs></svg>
+
+        <div id="tooltip"></div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+
+    </div>
+
+    
+
+    <div id="tooltip"></div>
+
+    <div class="viz"></div>
+
+
+
+
+    <script src="js/d3.v6.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/line.js"></script>
+    <script src="js/piechart.js"></script>
+    <script src="js/stackedChart.js"></script>
+    <script src="js/choroplethMap.js"></script>
+    <script src="js/topojson.v3.js"></script>
+
+</body>
+
+</html>
